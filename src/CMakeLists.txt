@@ -5,11 +5,11 @@ include (FetchContent)
 set (FMT_VERSION 10.1.1)
 
 FetchContent_Declare(
-        fmt
-        GIT_REPOSITORY https://github.com/fmtlib/fmt.git
-        GIT_TAG ${FMT_VERSION}
-        GIT_SHALLOW TRUE
-        GIT_PROGRESS TRUE
+    fmt
+    GIT_REPOSITORY https://github.com/fmtlib/fmt.git
+    GIT_TAG ${FMT_VERSION}
+    GIT_SHALLOW TRUE
+    GIT_PROGRESS TRUE
 )
 
 set (FMT_TEST OFF)
@@ -17,12 +17,14 @@ set (FMT_TEST OFF)
 FetchContent_MakeAvailable(fmt)
 
 FetchContent_Declare(
-        notcurses
-        GIT_REPOSITORY https://github.com/dankamongmen/notcurses
-        GIT_TAG master
-        GIT_SHALLOW TRUE
-        GIT_PROGRESS TRUE
+    notcurses
+    GIT_REPOSITORY https://github.com/dankamongmen/notcurses
+    GIT_TAG master
+    GIT_SHALLOW TRUE
+    GIT_PROGRESS TRUE
 )
+
+include_directories (${notcurses_SOURCE_DIR}/include)
 
 set (BUILD_TESTING OFF)
 set (USE_PANDOC OFF)
