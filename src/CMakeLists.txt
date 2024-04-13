@@ -1,3 +1,4 @@
+set (CMAKE_COLOR_DIAGNOSTICS ON)
 
 include (FetchContent)
 
@@ -15,8 +16,6 @@ set (FMT_TEST OFF)
 
 FetchContent_MakeAvailable(fmt)
 
-# set (NOTCURSES_VERSION 3.0.9)
-
 FetchContent_Declare(
         notcurses
         GIT_REPOSITORY https://github.com/dankamongmen/notcurses
@@ -27,6 +26,8 @@ FetchContent_Declare(
 
 set (BUILD_TESTING OFF)
 set (USE_PANDOC OFF)
+set (BUILD_EXECUTABLES OFF)
+set (USE_POC OFF)
 
 FetchContent_MakeAvailable(notcurses)
 
@@ -34,4 +35,4 @@ file(GLOB CPP_SOURCES "*.cpp")
 
 add_executable(${PROJECT_NAME} ${CPP_SOURCES})
 
-target_link_libraries(${PROJECT_NAME} fmt notcurses)
+target_link_libraries(${PROJECT_NAME} fmt notcurses++ notcurses-core)
